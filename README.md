@@ -2,7 +2,7 @@
 
 ![MCBouncyButton in action.](https://raw.githubusercontent.com/Shrugs/MCBouncyButton/master/mcbouncybutton.gif "MCBouncyButton in action.")
 
-A bouncy button.
+It's a button! For iOS! And it bounces delightfully!
 
 ## Install
 
