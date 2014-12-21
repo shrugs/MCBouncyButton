@@ -75,7 +75,7 @@
     [self addTarget:self action:@selector(touchAll:) forControlEvents:UIControlEventAllTouchEvents];
 
     // set to default style
-    [self setStyle:AKButtonStyleDefault animated:NO];
+    [self setStyle:MCBouncyButtonStyleDefault animated:NO];
 }
 
 - (void)setStyle:(MCBouncyButtonStyle)style animated:(BOOL)animated
