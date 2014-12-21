@@ -32,3 +32,23 @@ typedef enum {
 ```
 
 MCBouncyButton will automatically create a negative of your supplied image to use for the selected style.
+
+## Properties
+
+You can change the following properties of the button.
+
+#### Button Properties
+
+- defaultBodyColor - default button body color (default a system grey)
+- defaultShadowColor - default button shadow color (default a system grey)
+- defaultTextColor - default text color (default black)
+- selectedBodyColor - selected button body color (default a happy blue)
+- selectedShadowColor - selected button shadow color (default a happy blue)
+- selectedTextColor - selected text color (default white)
+- relativeIconInset - distance to inset provided icon based on diameter (default 0.2f);
+
+#### Animation Properties
+
+- scaleValue - maximum value to scale button when pressed (default 0.9f)
+- buttonBounciness - POP bounciness value (default 20.0f)
+- buttonSpeed - POP speed value (default 15.0f)
