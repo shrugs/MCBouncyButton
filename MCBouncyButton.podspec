@@ -3,9 +3,9 @@ Pod::Spec.new do |s|
 
   s.name         = "MCBouncyButton"
   s.version      = "1.0.0"
-  s.summary      = "An iOS bouncy button with Pop."
+  s.summary      = "A delightfully bouncy button."
   s.description  = <<-DESC
-                    MCBouncyButton is a subclass of UIButton that leverages Pop to pleasantly bounce due to user interaction.
+                    MCBouncyButton is a subclass of UIButton that leverages Pop to delightfully bounce due to user interaction.
                     Supports preconfigured styles (default and selected) and you can add your own.
                    DESC
   s.homepage     = "https://github.com/Shrugs/MCBouncyButton"
