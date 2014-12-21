@@ -1,0 +1,13 @@
+PODS:
+  - MCBouncyButton (1.0.0):
+    - pop (~> 1.0)
+  - pop (1.0.7)
+
+DEPENDENCIES:
+  - MCBouncyButton
+
+SPEC CHECKSUMS:
+  MCBouncyButton: f56f99744f56a62d092152c06c929e7868886d69
+  pop: 2f14a1ea61339767af9e66741b418c831b3844df
+
+COCOAPODS: 0.35.0
