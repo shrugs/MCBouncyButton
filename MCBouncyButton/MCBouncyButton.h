@@ -16,6 +16,7 @@ typedef enum {
 
 @property (nonatomic, strong) UIImage *icon;
 @property (nonatomic, strong) UIImage *iconNegative;
+@property (nonatomic, strong) NSString *text;
 
 // BUTTON PROPERTIES
 @property (nonatomic, strong) UIColor *defaultBodyColor; // default button body color (default a system grey)
@@ -30,7 +31,8 @@ typedef enum {
 @property (nonatomic, assign) float buttonSpeed; // POP speed value (default 15.0f)
 
 
-- (id)initWithImage:(UIImage *)image andDiameter:(float)diameter;
+- (id)initWithImage:(UIImage *)image andRadius:(float)radius;
+- (id)initWithText:(NSString *)text andRadius:(float)radius;
 - (void)setStyle:(MCBouncyButtonStyle)style animated:(BOOL)animated;
 
 

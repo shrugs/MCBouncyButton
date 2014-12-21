@@ -11,50 +11,71 @@
 
 @implementation MCBouncyButton
 
+- (id)initWithText:(NSString *)text andRadius:(float)radius
+{
+    self = [[self class] buttonWithType:UIButtonTypeCustom];
+    if (self) {
+        self.text = text;
+        [self setTitle:self.text forState:UIControlStateNormal];
+        [self.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:18]];
+        self.titleLabel.adjustsFontSizeToFitWidth = YES;
+
+        [self configureWithRadius:radius];
+    }
+    return self;
+}
+
 - (id)initWithImage:(UIImage *)image andRadius:(float)radius
 {
     self = [[self class] buttonWithType:UIButtonTypeCustom];
     if (self) {
-
-        // DEFAULTS
-
-        // a system grey
-        self.defaultBodyColor = [UIColor colorWithRed:0.98828125f green:0.98828125f blue:0.98828125f alpha:1.0];
-        self.defaultShadowColor = [UIColor colorWithRed:0.515625f green:0.51953125f blue:0.53125f alpha:1.0f];
-        // a happy blue
-        self.selectedBodyColor = [UIColor colorWithRed:0.04296875f green:0.4140625f blue:0.99609375f alpha:1.0];
-        self.selectedShadowColor = [UIColor colorWithRed:0.0f green:0.3671875f blue:0.69140625f alpha:1.0f];
-
-        self.scaleValue = 0.9f;
-        self.relativeIconInset = 0.2f;
-        self.buttonBounciness = 20.0f;
-        self.buttonSpeed = 15.0f;
-
-        // if we have an image, deal with it
+        // can pass nil for an image and get a blank button
         if (image) {
             self.icon = image;
             self.iconNegative = [image negativeImage];
             [self setAdjustsImageWhenDisabled:YES];
         }
 
-        // set frame
-        self.frame = CGRectMake(0, 0, radius/2.0, radius/2.0);
-        float inset = self.relativeIconInset*(radius/2.0);
-        [self setImageEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
-        self.layer.cornerRadius = radius;
-        self.layer.masksToBounds = NO;
-        self.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
-        self.layer.shadowOpacity = 1.0f;
-        self.layer.shadowRadius = 0.0f;
-
-        // set to default style
-        [self setStyle:MCBouncyButtonStyleDefault animated:NO];
-
-        // add handlers
-        [self addTarget:self action:@selector(touchDownInside:) forControlEvents:UIControlEventTouchDown];
-        [self addTarget:self action:@selector(touchAll:) forControlEvents:UIControlEventAllTouchEvents];
+        [self configureWithRadius:radius];
     }
     return self;
+}
+
+- (void)configureWithRadius:(float)radius
+{
+    // DEFAULTS
+
+    // a system grey
+    self.defaultBodyColor = [UIColor colorWithRed:0.98828125f green:0.98828125f blue:0.98828125f alpha:1.0];
+    self.defaultShadowColor = [UIColor colorWithRed:0.515625f green:0.51953125f blue:0.53125f alpha:1.0f];
+    self.defaultTextColor = [UIColor blackColor];
+    // a happy blue
+    self.selectedBodyColor = [UIColor colorWithRed:0.04296875f green:0.4140625f blue:0.99609375f alpha:1.0];
+    self.selectedShadowColor = [UIColor colorWithRed:0.0f green:0.3671875f blue:0.69140625f alpha:1.0f];
+    self.selectedTextColor = [UIColor whiteColor];
+
+    self.scaleValue = 0.9f;
+    self.relativeIconInset = 0.2f;
+    self.buttonBounciness = 20.0f;
+    self.buttonSpeed = 15.0f;
+
+    self.frame = CGRectMake(0, 0, radius*2.0f, radius*2.0f);
+
+    float inset = self.relativeIconInset*(radius*2.0f);
+    [self setImageEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
+
+    self.layer.cornerRadius = radius;
+    self.layer.masksToBounds = NO;
+    self.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
+    self.layer.shadowOpacity = 1.0f;
+    self.layer.shadowRadius = 0.0f;
+
+    // handlers
+    [self addTarget:self action:@selector(touchDownInside:) forControlEvents:UIControlEventTouchDown];
+    [self addTarget:self action:@selector(touchAll:) forControlEvents:UIControlEventAllTouchEvents];
+
+    // set to default style
+    [self setStyle:AKButtonStyleDefault animated:NO];
 }
 
 - (void)setStyle:(MCBouncyButtonStyle)style animated:(BOOL)animated
@@ -65,6 +86,10 @@
             // if we have an icon, set it
             if (self.icon) {
                 [self setImage:self.icon forState:UIControlStateNormal];
+            }
+
+            if (self.text) {
+                [self setTitleColor:self.defaultTextColor forState:UIControlStateNormal];
             }
 
             if (animated) {
@@ -81,6 +106,10 @@
             // if we have an icon, set it
             if (self.icon) {
                 [self setImage:self.iconNegative forState:UIControlStateNormal];
+            }
+
+            if (self.text) {
+                [self setTitleColor:self.selectedTextColor forState:UIControlStateNormal];
             }
 
             if (animated) {
