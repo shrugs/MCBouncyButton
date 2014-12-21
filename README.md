@@ -1,6 +1,6 @@
 ## MCBouncyButton
 
-![alt text]( "MCBouncyButton in action.")
+![MCBouncyButton in action.](https://raw.githubusercontent.com/Shrugs/MCBouncyButton/master/mcbouncybutton.gif "MCBouncyButton in action.")
 
 A bouncy button.
 
