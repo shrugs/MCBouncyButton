@@ -21,8 +21,10 @@ typedef enum {
 // BUTTON PROPERTIES
 @property (nonatomic, strong) UIColor *defaultBodyColor; // default button body color (default a system grey)
 @property (nonatomic, strong) UIColor *defaultShadowColor; // default button shadow color (default a system grey)
+@property (nonatomic, strong) UIColor *defaultTextColor; // default text color (default black)
 @property (nonatomic, strong) UIColor *selectedBodyColor; // selected button body color (default a happy blue)
 @property (nonatomic, strong) UIColor *selectedShadowColor; // selected button shadow color (default a happy blue)
+@property (nonatomic, strong) UIColor *selectedTextColor; // selected text color (default white)
 @property (nonatomic, assign) float relativeIconInset; // distance to inset provided icon based on diameter [0..1] (default 0.2f);
 
 // ANIMATION PROPERTIES
